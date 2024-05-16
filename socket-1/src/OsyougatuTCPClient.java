@@ -33,7 +33,7 @@ public class OsyougatuTCPClient {
 
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 
-            OsyougatuOtoshidama okaeshiPresent = (OsyougatuOtoshidamat) ois.readObject();
+            OsyougatuOtoshidama okaeshiPresent = (OsyougatuOtoshidama) ois.readObject();
 
             String replayMsg = okaeshiPresent.getMessage();
             System.out.println("サーバからのメッセージは" + replayMsg);
