@@ -5,17 +5,17 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class XmasTCPServer {
+public class OsyougatuTCPServer {
 
     private static final int times = 2;
 
     private static String serverProcess(String content) {
         StringBuilder sb = new StringBuilder();
-        sb.append("🎁");
+        sb.append("💰");
         for (int i = 0; i < times; i++) {
             sb.append(content);
         }
-        sb.append("🎁");
+        sb.append("💰");
         String result = sb.toString();
         return result;
     }
@@ -36,17 +36,17 @@ public class XmasTCPServer {
 
             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 
-            XmasPresent present = (XmasPresent) ois.readObject();// Integerクラスでキャスト。
+            OsyougatuOtoshidama present = (OsyougatuOtoshidama) ois.readObject();// Integerクラスでキャスト。
 
             String msgPresent = present.getMessage();
             System.out.println("メッセージは" + msgPresent);
             String presentFromClient = present.getContent();
-            System.out.println("プレゼントの内容は" + presentFromClient);
+            System.out.println("お年玉の金額は" + presentFromClient);
 
             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
 
-            XmasPresent response = new XmasPresent();
-            response.setMessage("サーバーです。メリークリスマス！\n" + presentFromClient + "ありがとう。\nプレゼントのお返しは" + times + "倍" + "です");
+            OsyougatuOtoshidama response = new OsyougatuOtoshidama();
+            response.setMessage("サーバーです。明けおめ！\n" + presentFromClient + "ありがとう。\nお年玉のお返しは" + times + "倍" + "です");
             response.setContent(serverProcess(presentFromClient));
 
             oos.writeObject(response);

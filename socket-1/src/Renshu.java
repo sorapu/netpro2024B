@@ -16,6 +16,8 @@ public class Renshu {
 
     // pからqまでの整数の合計値を返す関数
     public int sumFromPtoQ(int p, int q) {
+        if (p > q) {
+            return -1; // pがqより大きい場合は -1 を返す
         int sum = 0;
         for (int i = p; i <= q; i++) {
             sum += i;

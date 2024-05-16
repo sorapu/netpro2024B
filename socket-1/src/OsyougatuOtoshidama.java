@@ -2,7 +2,7 @@
 
     import java.io.Serializable;
 
-public class XmasPresent implements Serializable {
+public class OsyougatuOtoshidama implements Serializable {
 
     String message;
     String content;
